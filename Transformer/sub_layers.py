@@ -48,7 +48,6 @@ class SelfAttention(nn.Module):
 class MultiHeadAttention(nn.Module):
     def __init__(self, embed_dim, d_k, d_v, num_heads, mask=False, CUDA=False):
         super(MultiHeadAttention, self).__init__()
-        ### Credit: Issue From @shouldsee https://github.com/IpsumDominum/Pytorch-Simple-Transformer/issues/2
         self.attention_blocks = nn.ModuleList(
             [SelfAttention(embed_dim, d_k, d_v, mask) for _ in range(num_heads)]
         )
